@@ -11,38 +11,84 @@
     />
     <title>Formulario</title>
   </head>
-  <body>
-    <div class="container">
+  <body onload="inicializar()">
+    <div class="container d-flex flex-column align-items-center">
       <h1>Formulario</h1>
 
       <form id="formulario">
+        <label for="userName">Nombre de usuario</label>
         <input
           class="form-control mb-2"
           name="userName"
           placeholder="Ingrese su nombre"
           autocomplete="off"
           id="userName"
+          value="adrian"
+          style="max-width: 468px"
+          maxlength="25"
           type="text"
         />
 
         <p class="text-danger mb-2 d-none" id="alertName"></p>
 
+        <label for="userEmail">Direccion de correo</label>
         <input
           class="form-control mb-2"
           name="userEmail"
           placeholder="Ingrese su correo"
           id="userEmail"
+          value="adrijesuslerma@tuvanosa.com"
           autocomplete="off"
+          style="max-width: 468px"
           type="email"
         />
 
         <p class="text-danger mb-2 d-none" id="alertEmail"></p>
 
-        <button class="btn btn-primary" type="submit">Enviar</button>
+        <label for="userGener">Genero</label>
+        <select
+          class="form-control mb-3"
+          name="userGener"
+          id="userGener"
+          aria-placeholder="Escoja su genero"
+          style="max-width: px"
+        >
+          <option disabled selected hidden>Selecciona tu genero</option>
+          <option>Masculino</option>
+          <option>Femenino</option>
+          <option>Otro</option>
+          <option>Prefiero no decirlo</option>
+        </select>
+
+        <p class="text-danger mb-2 d-none" id="alertGener"></p>
+
+        <input
+          class="form-check-input"
+          name="checkBox"
+          type="checkbox"
+          for="btnEnviar"
+          id="checkBox"
+          onclick="cambio()"
+        />
+
+        <label class="form-check-label mb-3" for="checkBox">
+          Estoy de acuerdo en compartir esta información
+        </label>
+
+        <br />
+
+        <button class="btn btn-primary" id="btnEnviar" type="submit">
+          Enviar
+        </button>
       </form>
       <div class="alert alert-success mt-2 d-none" id="alertSuccess"></div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+      function inicializar() {
+        cambio();
+      }
+    </script>
   </body>
 </html>
